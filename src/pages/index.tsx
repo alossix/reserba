@@ -17,9 +17,20 @@ export default function Home() {
       <Container>
         <Box sx={{ p: 1 }}>
           <Typography variant="h1" sx={{ my: 4, textAlign: "center" }}>
-            Services
+            Reserba: Restaurant reservations for small- and medium-sized
+            restaurants
           </Typography>
-          <Typography variant="h2">Overview</Typography>
+          <Typography variant="h2">
+            Overview: Reserba: Restaurant reservations for small- and
+            medium-sized restaurants Reserba: Restaurant reservations for small-
+            and medium-sized restaurants Reserba: Restaurant reservations for
+            small- and medium-sized restaurants Reserba: Restaurant reservations
+            for small- and medium-sized restaurants Reserba: Restaurant
+            reservations for small- and medium-sized restaurants Reserba:
+            Restaurant reservations for small- and medium-sized restaurants
+            Reserba: Restaurant reservations for small- and medium-sized
+            restaurants
+          </Typography>
         </Box>
       </Container>
     </>
