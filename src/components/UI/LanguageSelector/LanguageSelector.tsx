@@ -1,8 +1,8 @@
-import { theme } from "@/styles/theme";
+// import { theme } from "@/styles/theme";
 import { InterfaceLanguages } from "@/types/general";
 import styled from "@emotion/styled";
-import useTranslation from "next-translate/useTranslation";
-import React from "react";
+import { forwardRef } from "react";
+// import useTranslation from "next-translate/useTranslation";
 
 type LanguageSelectorProps = {
   handleSelectLanguage: (event: React.ChangeEvent<HTMLSelectElement>) => void;
@@ -21,7 +21,7 @@ const languageLabelsInterface: Record<InterfaceLanguages, string> = {
   it: "Italiano",
 };
 
-export const LanguageSelector = React.forwardRef<
+export const LanguageSelector = forwardRef<
   HTMLDivElement,
   LanguageSelectorProps
 >(
@@ -29,13 +29,13 @@ export const LanguageSelector = React.forwardRef<
     {
       handleSelectLanguage,
       id,
-      languageSet,
+      // languageSet,
       selectedLanguage,
       showIcon = true,
     },
     ref
   ) => {
-    const { t } = useTranslation();
+    // const { t } = useTranslation();
 
     const createLanguageOptions = () => {
       return (
@@ -70,7 +70,7 @@ export const LanguageSelector = React.forwardRef<
           value={selectedLanguage}
         >
           <option value="" disabled aria-disabled>
-            {t("common:header_language")}
+            {/* {t("common:header_language")} */}
           </option>
           {languageOptions.map((option) => (
             <option key={option.value} value={option.value}>
@@ -94,7 +94,7 @@ const LanguageSelectorContainer = styled.div({
 const StyledSelectMenu = styled.select({
   padding: "2px 4px",
   borderRadius: 4,
-  border: `1px solid ${theme.colors.mediumGrey}`,
-  color: theme.colors.lightBlack,
-  backgroundColor: theme.colors.white,
+  // border: `1px solid ${theme.colors.mediumGrey}`,
+  // color: theme.colors.lightBlack,
+  // backgroundColor: theme.colors.white,
 });

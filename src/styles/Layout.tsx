@@ -1,14 +1,16 @@
 import { Footer } from "@/components/UI/Footer";
 import { Header } from "@/components/UI/Header";
 import { Container, Toolbar } from "@mui/material";
+import { SessionProvider } from "next-auth/react";
+import { ReactNode } from "react";
 
 type LayoutProps = {
-  children?: React.ReactNode;
+  children?: ReactNode;
 };
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <>
+    <SessionProvider>
       <div
         style={{
           display: "grid",
@@ -22,6 +24,6 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Container>{children}</Container>
         <Footer />
       </div>
-    </>
+    </SessionProvider>
   );
 };

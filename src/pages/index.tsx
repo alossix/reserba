@@ -1,12 +1,12 @@
 import { Box, Container, Typography } from "@mui/material";
 import Head from "next/head";
 
-export default function Home() {
+const Home: React.FC = () => {
   return (
     <>
       <Head>
         <title>Reserba</title>
-        // TODO: update meta description
+        {/* // TODO: update meta description */}
         <meta
           name="description"
           content="Reserba: Reservation system for small and medium-sized restaurants"
@@ -35,4 +35,6 @@ export default function Home() {
       </Container>
     </>
   );
-}
+};
+
+export default Home;
