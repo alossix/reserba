@@ -18,8 +18,8 @@ import { signOut, useSession } from "next-auth/react";
 export const Header: React.FC = () => {
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
+  const { data: session, status } = useSession();
   const router = useRouter();
-  const session = useSession();
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
@@ -171,18 +171,22 @@ export const Header: React.FC = () => {
             >
               About Us
             </Button>
-            <Button
-              onClick={() => router.push("/sign-in")}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Sign In
-            </Button>
-            <Button
-              onClick={() => router.push("/sign-up")}
-              sx={{ my: 2, color: "white", display: "block" }}
-            >
-              Sign Up
-            </Button>
+            {!session?.user && (
+              <>
+                <Button
+                  onClick={() => router.push("/sign-in")}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Sign In
+                </Button>
+                <Button
+                  onClick={() => router.push("/sign-up")}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  Sign Up
+                </Button>
+              </>
+            )}
             <Button
               onClick={() => router.push("/contact")}
               sx={{ my: 2, color: "white", display: "block" }}
@@ -192,7 +196,7 @@ export const Header: React.FC = () => {
           </Box>
 
           {/* Show when signed in */}
-          {session?.data?.user && (
+          {session?.user && (
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>

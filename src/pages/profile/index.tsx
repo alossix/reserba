@@ -4,20 +4,19 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 
 const ProfilePage: React.FC = () => {
+  const { data: session, status } = useSession();
   const router = useRouter();
-  const session = useSession();
 
   useEffect(() => {
-    if (!session?.data?.user) {
-      router.push("/sign-in");
-    }
-  }, [session, router]);
+    if (status === "loading") return;
+    if (!session) router.push("/sign-in");
+  }, [session, router, status]);
 
   return (
     <>
       Profile page
-      <Typography variant="h1">{session.data?.user?.name}</Typography>
-      <button onClick={() => signOut()}>Sign out</button>
+      <Typography variant="h1">{session?.user?.name}</Typography>
+      <button onClick={() => signOut({ callbackUrl: "/" })}>Sign out</button>
     </>
   );
 };

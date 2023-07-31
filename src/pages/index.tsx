@@ -1,7 +1,11 @@
 import { Box, Container, Typography } from "@mui/material";
+import { useSession } from "next-auth/react";
 import Head from "next/head";
 
 const Home: React.FC = () => {
+  const session = useSession();
+
+  console.log({ session });
   return (
     <>
       <Head>
