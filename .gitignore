@@ -29,6 +29,7 @@ yarn-error.log*
 .env.development
 .env.production
 .env.test
+/src/services/firebase/service-account.json
 
 
 # vercel
