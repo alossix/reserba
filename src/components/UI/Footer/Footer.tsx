@@ -1,14 +1,9 @@
-import { BottomNavigation, Container } from "@mui/material";
+import { Container } from "@mui/material";
 
 export const Footer: React.FC = () => {
   return (
-    <BottomNavigation
-      sx={{
-        bgcolor: "tomato",
-        py: 4,
-      }}
-    >
-      <Container maxWidth="xl">Hey</Container>
-    </BottomNavigation>
+    <Container sx={{ bgcolor: "tomato" }} maxWidth="xl">
+      hey
+    </Container>
   );
 };
